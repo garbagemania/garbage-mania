@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-green: #1f7a45;
+  --brand-green-dark: #134f2d;
+  --brand-yellow: #e0a400;
+  --surface: #f7f8f6;
+  --surface-raised: #ffffff;
+  --text-primary: #171913;
+  --text-muted: #545c4f;
+  --border: #dde1d9;
+  --focus-ring: #2563a8;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--text-primary);
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+/* Visible keyboard focus everywhere — accessibility floor, never removed. */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

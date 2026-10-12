@@ -1,0 +1,17 @@
+-- supabase/seed.sql
+--
+-- Deliberately empty. Per this project's explicit rule (see PHASE_3_ADMIN_REVIEW.md
+-- and docs/ADMIN_BOOTSTRAP.md): no demo users, no hardcoded passwords in
+-- source, no seeded fake administrator.
+--
+-- A previous version of this file inserted a demo admin directly into
+-- auth.users with a hardcoded plaintext password ('Admin123!'). That was
+-- removed - it violated the explicit no-fake-admin/no-password-in-source
+-- rule, and would likely not have worked correctly anyway (a raw INSERT
+-- into auth.users bypasses Supabase Auth's own identity/session
+-- machinery, which normally expects a matching auth.identities row and
+-- proper GoTrue-managed password hashing flow).
+--
+-- To create the first real administrator, run:
+--   npm run bootstrap:admin -- --email you@garbagemania.co.ke --name "Your Name"
+-- See docs/ADMIN_BOOTSTRAP.md for the full procedure.

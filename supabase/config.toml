@@ -1,0 +1,42 @@
+project_id = "garbage-mania"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage"]
+
+[db]
+port = 54322
+major_version = 15
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000", "http://localhost:3000/auth/callback"]
+jwt_expiry = 3600
+enable_signup = true
+minimum_password_length = 8
+
+# Throttle password guessing and mail abuse (per IP, per 5 minutes).
+[auth.rate_limit]
+email_sent = 4
+sign_in_sign_ups = 30
+token_verifications = 30
+
+# Two-step login (authenticator app) for admin / finance accounts.
+# Enrolment UI is not built yet - see docs/GO_LIVE.md.
+[auth.mfa.totp]
+enroll_enabled = true
+verify_enabled = true
+
+# Production email. Local development uses Mailpit (http://127.0.0.1:54324).
+# Configure the real SMTP provider in the hosted Supabase dashboard
+# (Authentication > SMTP Settings) - see docs/GO_LIVE.md.
+
+[storage]
+enabled = true
+file_size_limit = "10MiB"
